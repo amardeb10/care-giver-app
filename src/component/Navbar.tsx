@@ -91,8 +91,38 @@ function Navbar() {
             onClose={closeMenu}
           >
             <MenuList>
-              <MenuItem>Home</MenuItem>
-              <MenuItem>Quiz</MenuItem>
+              <MenuItem>
+                <Link
+                  style={{ textDecoration: "none", color: "blue" }}
+                  to="/home"
+                >
+                  Home
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link
+                  style={{ textDecoration: "none", color: "blue" }}
+                  to="/quiz"
+                >
+                  Quiz
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link
+                  style={{ textDecoration: "none", color: "blue" }}
+                  to="/activity"
+                >
+                  Activity
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link
+                  style={{ textDecoration: "none", color: "blue" }}
+                  to="/logout"
+                >
+                  Logout
+                </Link>
+              </MenuItem>
               {/* <MenuItem>Activity</MenuItem>
               <MenuItem>Logout</MenuItem> */}
             </MenuList>

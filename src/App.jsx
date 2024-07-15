@@ -7,7 +7,7 @@ import Logout from "./component/Logout";
 
 export default function App() {
   return (
-    <div>
+    <div className="App">
       <Navbar />
       <Routes>
         <Route path="/home" element={<Home />}></Route>
