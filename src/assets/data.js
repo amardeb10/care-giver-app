@@ -5,6 +5,7 @@ export const data = [
     option2: "Gauhati",
     option3: "Dispur",
     option4: "Tezpur",
+    options: "Kolkata,Gauhati,Dispur,Tezpur",
     ans: 3,
   },
   {
@@ -14,13 +15,26 @@ export const data = [
     option3: "North America",
     option4: "Africa",
     ans: 4,
+    options: "Asia,Europe,North America,Africa",
   },
   {
-    question: "A computer boot if it deos not have?",
+    question: "Who is in the Image?",
+    image:
+      "https://storage.googleapis.com/care-giver-bucket/profile-photo/20181104_203225.jpg",
+    option1: "Vijay",
+    option2: "Amar",
+    option3: "Alok",
+    option4: "Vibhas",
+    ans: 2,
+    options: "Vijay,Amar,Alok,Vibhas",
+  },
+  {
+    question: "A computer boot if it does not have?",
     option1: "Application Software",
     option2: "Internet",
     option3: "Operating System",
     option4: "Driver",
     ans: 3,
+    options: "Application Software,Internet,Operating System,Driver",
   },
 ];

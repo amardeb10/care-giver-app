@@ -23,7 +23,6 @@
 }
 
 .quiz-container h2 {
-  display: flex;
   font-size: 25px;
   font-weight: 500;
 }
@@ -65,4 +64,9 @@
 .quiz-container .wrong {
   background: #ffebeb;
   border-color: #ff4a4a;
+}
+
+.image-component {
+  width: 100%;
+  height: auto;
 }
