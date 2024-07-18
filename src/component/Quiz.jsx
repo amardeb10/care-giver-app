@@ -13,11 +13,14 @@ export default function Quiz() {
   let [result, setResult] = useState(false);
   let [score, setScore] = useState(0);
   let [load, setLoad] = useState(false);
-  let [quizAttempt, setQuizAttempt] = useState(0);
+  let [quizAttempt, setQuizAttempt] = useState(1);
+  let [questionsAnweredMap, setQuestionsAnweredMap] = useState(new Map());
+
   const next = () => {
     if (lock === true) {
       if (index === data.length - 1) {
         setResult(true);
+        submitAnswers();
         return;
       }
       setIndex(++index);
@@ -83,8 +86,36 @@ export default function Quiz() {
     };
   }, [quizAttempt]);
 
-  const submitAnswers = () => {
-    console.log("Submitted the answers");
+  const submitAnswers = async () => {
+    const body = Object.assign(
+      {},
+      ...Array.from(questionsAnweredMap.entries()).map(([k, v]) => ({ [k]: v }))
+    );
+
+    try {
+      console.log("submitting questions body" + body);
+      const response = await fetch(
+        `http://localhost:8080/caringbridge/questions/attempts/${quizAttempt}`,
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(body),
+        }
+      );
+      if (response?.ok) {
+        console.log("Answers Submitted Successfully");
+        return <div>Answers Submitted successfully</div>;
+      } else {
+        console.error(
+          `Error while Submitting Answer with staus : ${response.status}`
+        );
+      }
+    } catch (err) {
+      console.error(err.message);
+    }
   };
 
   return (
@@ -125,6 +156,7 @@ export default function Quiz() {
                           key={i}
                           line={i}
                           element={element}
+                          map={questionsAnweredMap}
                         />
                       );
                     })}
@@ -143,7 +175,6 @@ export default function Quiz() {
               <></>
             ) : (
               <>
-                {submitAnswers()}
                 <h2>
                   You scored {score} out of {data.length}
                 </h2>

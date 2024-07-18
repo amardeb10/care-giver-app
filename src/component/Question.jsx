@@ -6,8 +6,11 @@ export default function Question({
   option_array,
   line,
   element,
+  map,
 }) {
   const answer = (e, ans) => {
+    map.set(question.id, ans);
+    console.log("Map size is ", map.size);
     if (lock == false) {
       if (question.answer === ans) {
         e.target.classList.add("correct");
