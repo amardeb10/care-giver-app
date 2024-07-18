@@ -13,8 +13,7 @@ import { Accessibility } from "@mui/icons-material";
 import MenuIcon from "@mui/icons-material/menu";
 import React, { useState, MouseEvent } from "react";
 import { Link } from "react-router-dom";
-import Home from "./Home";
-import Quiz from "./Quiz";
+import { auth } from "../firebase";
 
 function Navbar() {
   const [anchorNav, setAnchorNav] = useState<null | HTMLElement>(null);
@@ -25,6 +24,9 @@ function Navbar() {
     setAnchorNav(null);
   };
 
+  const signOut = () => {
+    auth.signOut();
+  };
   const pages = ["Home", "Quiz", "Activity", "Logout"];
 
   return (
@@ -66,15 +68,16 @@ function Navbar() {
             </Link>
           </Button>
           <Button color="inherit">
-            <Link
-              style={{ textDecoration: "none", color: "white" }}
-              to="/Logout"
-            >
-              Logout
-            </Link>
+          <Link
+                  style={{ textDecoration: "none", color: "white" }}
+                  to="/chat"
+                >
+                  Community Support
+          </Link>
           </Button>
-          {/* <Button color="inherit">Activity</Button>
-          <Button color="inherit">Logout</Button> */}
+          <Button color="inherit" onClick={signOut} style={{ textDecoration: "none", color: "white" }}>
+              Logout
+          </Button>
         </Box>
         <Box sx={{ display: { xs: "flex", md: "none" } }}>
           <IconButton
@@ -118,13 +121,14 @@ function Navbar() {
               <MenuItem>
                 <Link
                   style={{ textDecoration: "none", color: "blue" }}
-                  to="/logout"
+                  to="/chat"
                 >
-                  Logout
+                  Community Support
                 </Link>
               </MenuItem>
-              {/* <MenuItem>Activity</MenuItem>
-              <MenuItem>Logout</MenuItem> */}
+              <MenuItem onClick={signOut} style={{ textDecoration: "none", color: "white" }}>
+                  Logout
+              </MenuItem>
             </MenuList>
           </Menu>
         </Box>
