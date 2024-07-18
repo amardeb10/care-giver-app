@@ -13,8 +13,7 @@ import { Accessibility } from "@mui/icons-material";
 import MenuIcon from "@mui/icons-material/menu";
 import React, { useState, MouseEvent } from "react";
 import { Link } from "react-router-dom";
-import Home from "./Home";
-import Quiz from "./Quiz";
+import { auth } from "../firebase";
 
 function Navbar() {
   const [anchorNav, setAnchorNav] = useState<null | HTMLElement>(null);
@@ -25,6 +24,9 @@ function Navbar() {
     setAnchorNav(null);
   };
 
+  const signOut = () => {
+    auth.signOut();
+  };
   const pages = ["Home", "Quiz", "Activity", "Logout"];
 
   return (
@@ -65,16 +67,9 @@ function Navbar() {
               Activity
             </Link>
           </Button>
-          <Button color="inherit">
-            <Link
-              style={{ textDecoration: "none", color: "white" }}
-              to="/Logout"
-            >
+          <Button color="inherit" onClick={signOut} style={{ textDecoration: "none", color: "white" }}>
               Logout
-            </Link>
           </Button>
-          {/* <Button color="inherit">Activity</Button>
-          <Button color="inherit">Logout</Button> */}
         </Box>
         <Box sx={{ display: { xs: "flex", md: "none" } }}>
           <IconButton
@@ -115,16 +110,9 @@ function Navbar() {
                   Activity
                 </Link>
               </MenuItem>
-              <MenuItem>
-                <Link
-                  style={{ textDecoration: "none", color: "blue" }}
-                  to="/logout"
-                >
+              <MenuItem onClick={signOut} style={{ textDecoration: "none", color: "white" }}>
                   Logout
-                </Link>
               </MenuItem>
-              {/* <MenuItem>Activity</MenuItem>
-              <MenuItem>Logout</MenuItem> */}
             </MenuList>
           </Menu>
         </Box>

@@ -2,3 +2,10 @@
   height: 100%;
   width: 100%;
 }
+
+.welcome {
+  padding: 30px;
+  text-align: center;
+  margin-top: 40px;
+  color: #7cc5d9;
+}
