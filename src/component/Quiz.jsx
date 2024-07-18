@@ -145,7 +145,7 @@ export default function Quiz() {
                 </h2>
                 <ul style={{ paddingInlineStart: "0px" }}>
                   {question !== undefined &&
-                    question.options.split(",").map((element, i) => {
+                    question.options.split("¦").map((element, i) => {
                       return (
                         <Question
                           question={question}
