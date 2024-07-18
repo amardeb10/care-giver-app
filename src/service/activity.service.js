@@ -8,6 +8,10 @@ class ActivityService {
     saveActivity(activity) {
         return axios.post(API_URL + "/activities", activity);
     }
+
+    deleteActivity(activityId) {
+        return axios.delete(API_URL + "/activities/" + activityId);
+    }
 }
 
 export default new ActivityService
