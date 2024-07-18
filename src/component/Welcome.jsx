@@ -1,7 +1,7 @@
 import React from "react";
 import GoogleSignin from "../../image/btn_google_signin_dark_pressed_web.png";
 import { auth } from "../firebase"
-
+import "./Welcome.css"
 //import { GoogleAuthProvider, signInWithPopup } from fir
 import { GoogleAuthProvider,signInWithPopup } from "firebase/auth";
 

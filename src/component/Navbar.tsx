@@ -67,6 +67,14 @@ function Navbar() {
               Activity
             </Link>
           </Button>
+          <Button color="inherit">
+          <Link
+                  style={{ textDecoration: "none", color: "white" }}
+                  to="/chat"
+                >
+                  Community Support
+          </Link>
+          </Button>
           <Button color="inherit" onClick={signOut} style={{ textDecoration: "none", color: "white" }}>
               Logout
           </Button>
@@ -108,6 +116,14 @@ function Navbar() {
                   to="/activity"
                 >
                   Activity
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link
+                  style={{ textDecoration: "none", color: "blue" }}
+                  to="/chat"
+                >
+                  Community Support
                 </Link>
               </MenuItem>
               <MenuItem onClick={signOut} style={{ textDecoration: "none", color: "white" }}>
