@@ -58,7 +58,7 @@ export default function Quiz() {
       try {
         console.log("loading questions");
         const response = await fetch(
-          "http://localhost:8080/caringbridge/questions",
+          "https://careingbridge-gwrtjl6hoq-el.a.run.app/caringbridge/questions/5",
           {
             method: "GET",
             headers: {
@@ -95,7 +95,7 @@ export default function Quiz() {
     try {
       console.log("submitting questions body" + body);
       const response = await fetch(
-        `http://localhost:8080/caringbridge/questions/attempts/${quizAttempt}`,
+        `https://careingbridge-gwrtjl6hoq-el.a.run.app/caringbridge/questions/attempts/${quizAttempt}`,
         {
           method: "POST",
           headers: {
